@@ -13,7 +13,7 @@ namespace BinaryTree
             var node = new Node(value);
             if (this.Root == null)
             {
-                this.Root = node;
+            this.Root = node;
             }
             else
             {
