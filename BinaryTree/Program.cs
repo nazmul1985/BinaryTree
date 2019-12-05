@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace BinaryTree
 {
@@ -9,10 +10,17 @@ namespace BinaryTree
             Console.WriteLine("Create tree...");
             var tree = new Tree();
             var random = new Random();
+            var items = new ArrayList();
             for (var i = 0; i < 10; i++)
             {
-                tree.AddNode(random.Next(0, 100));
+                var next = random.Next(0, 100);
+                items.Add(next);
+                tree.AddNode(next);
             }
+
+            var height = tree.GetHeight(tree.Root);
+
+            Console.WriteLine($"Height of ({string.Join(',', items.ToArray())}): {height}");
 
             tree.Traverse();
 

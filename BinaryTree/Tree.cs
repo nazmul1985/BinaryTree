@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BinaryTree
 {
@@ -11,24 +9,29 @@ namespace BinaryTree
         public void AddNode(int value)
         {
             var node = new Node(value);
-            if (this.Root == null)
+            if (Root == null)
             {
-            this.Root = node;
+                Root = node;
             }
             else
             {
-                this.Root.AddNode(node);
+                Root.AddNode(node);
             }
+        }
+
+        public int GetHeight(Node root)
+        {
+            return root == null ? -1 : 1 + Math.Max(GetHeight(root.Left), GetHeight(root.Right));
         }
 
         public Node Search(int value)
         {
-            return this.Root?.Search(value);
+            return Root?.Search(value);
         }
 
         public void Traverse()
         {
-            this.Root?.Visit();
+            Root?.Visit();
         }
     }
 }
